@@ -1,7 +1,7 @@
 function App() {
   return (
     <div className="App">
-      <h1>Bienvennue sur Pulsart</h1>
+      <h1 className="text-blue-500 underline">Bienvenue sur Pulsart</h1>
     </div>
   );
 }
