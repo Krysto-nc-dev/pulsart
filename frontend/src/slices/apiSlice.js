@@ -3,7 +3,7 @@ import { BASE_URL, DOLIBAR_URL } from '../constants'
 
 // Si Event, PlasticColor, PlasticType, Recipes, Veilles sont des chaînes de caractères
 const tagTypes = [
-  'Event',
+  'User',
   'PlasticColor',
   'PlasticType',
   'Recipes',

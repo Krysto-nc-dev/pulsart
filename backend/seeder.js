@@ -13,7 +13,7 @@ connectDB();
 
 const importData = async () => {
   try {
-    await User.deleteMany(users);
+    // await User.deleteMany(users);
 
     await User.insertMany(users);
 

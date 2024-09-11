@@ -41,15 +41,11 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ['User'],
+      enum: ['User', 'Admin', 'Private'],
       required: true,
       default: 'User',
     },
-    isAdmin: {
-      type: Boolean,
-      required: true,
-      default: false,
-    },
+ 
   },
   { timestamps: true },
 )

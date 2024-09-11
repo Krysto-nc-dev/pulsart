@@ -12,12 +12,15 @@ import store from "./store";
 import App from "./App";
 
 
-import HomeScreen from "./screens/HomeScreen";
-import LoginScreen from "./screens/LoginScreen";
-import NotFoundScreen from "./screens/NotFoundScreen";
+import HomeScreen from "./screens/site/HomeScreen";
+import LoginScreen from "./screens/site/LoginScreen";
+import NotFoundScreen from "./screens/site/NotFoundScreen";
 import PrivateRoutes from "./components/utils/PrivateRoutes";
 import AdminRoutes from "./components/utils/AdminRoutes";
 import UserRoutes from "./components/utils/UserRoutes";
+import AdminHome from "./screens/admin/AdminHome";
+import UserHome from "./screens/user/UserHome";
+import PrivateHome from './screens/private/PrivateHome';
 
 
 
@@ -25,18 +28,27 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       {/* Public Routes */}
+      <Route index={true} path="/" element={<HomeScreen />} />
       <Route path="/login" element={<LoginScreen />} />
 
-      <Route index={true} path="/" element={<HomeScreen />} />
+      {/* Private Routes */}
+      <Route path="/" element={<PrivateRoutes />}>
+      <Route path="/private-home" element={<PrivateHome />} />
+        {/* Routes spécifiques aux utilisateurs privés */}
+      </Route>
 
-      {/* Regi  <Route path="/" element={<DashboardLayout />}>stered users */}
-      <Route path="/private" element={<PrivateRoutes />}></Route>
+      {/* Admin Routes */}
+      <Route path="/" element={<AdminRoutes />}>
+        {/* Routes spécifiques aux administrateurs */}
+      <Route path="/admin-home" element={<AdminHome />} />
 
-      {/* Admin users */}
-      <Route path="/admin" element={<AdminRoutes />}></Route>
+      </Route>
 
-      {/* Users */}
-      <Route path="/user" element={<UserRoutes />}></Route>
+      {/* User Routes */}
+      <Route path="/" element={<UserRoutes />}>
+      <Route path="/user-home" element={<UserHome />} />
+        {/* Routes spécifiques aux utilisateurs réguliers */}
+      </Route>
 
       {/* Route générique pour gérer toutes les autres routes non définies */}
       <Route path="*" element={<NotFoundScreen />} />

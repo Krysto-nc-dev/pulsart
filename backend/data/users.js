@@ -17,10 +17,10 @@ const users = [
     password: bcrypt.hashSync('So123456!', 10),
   },
   {
-    name: 'Artisant',
-    lastname: 'artisant',
-    email: 'artisant@mail.com',
-    role: 'Artisant',
+    name: 'Private',
+    lastname: 'private',
+    email: 'private@mail.com',
+    role: 'Private',
     password: bcrypt.hashSync('So123456!', 10),
   },
 ]

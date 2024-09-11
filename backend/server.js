@@ -26,7 +26,7 @@ app.use(cors())
 app.use(cookieParser())
 
 // Define routes
-app.use('/dolibarr-ui/api/users', userRoutes)
+app.use('/pulsart/api/users', userRoutes)
 
 
 
