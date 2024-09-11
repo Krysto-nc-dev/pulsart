@@ -15,10 +15,6 @@ body,
   height: 100%;
   width: 100%;
 }
-.app {
-  display: flex;
-  position: relative;
-}
 
 ::-webkit-scrollbar {
   width: 10px;

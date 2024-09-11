@@ -1,5 +1,11 @@
 import React from "react";
-import { Box, IconButton, InputBase, useTheme } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  InputBase,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import { useContext } from "react";
 import { ColorModeContext, tokens } from "../../theme";
 
@@ -13,11 +19,20 @@ import SearchIcon from "@mui/icons-material/Search";
 const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const isMobile = useMediaQuery(theme.breakpoints.down("md")); // Détecte le mode mobile
 
   const colorMode = useContext(ColorModeContext);
 
   return (
-    <Box display="flex" justifyContent="space-between" p={2}>
+    <Box
+      display="flex"
+      justifyContent="space-between"
+      p={2}
+      sx={{
+        marginLeft: isMobile ? "72px" : "0", // Appliquer une marge en haut en mode mobile
+        transition: "margin-top 0.3s ease", // Transition douce pour la marge
+      }}
+    >
       {/* SearchBar */}
       <Box
         display="flex"
