@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import Topbar from "../global/Topbar";
-import Sidebar from "../global/Sidebar";
+
 import { Box, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import AdminSidebar from "../global/AdminSidebar";
 
 const AdminLayout = ({ children }) => {
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md")); // Détecte le mode mobile
 
   return (
     <Box
@@ -18,7 +17,7 @@ const AdminLayout = ({ children }) => {
         overflow: "hidden",
       }}
     >
-      <Sidebar onCollapse={(isCollapsed) => setSidebarCollapsed(isCollapsed)} />
+      <AdminSidebar />
 
       <Box
         component="main"
@@ -33,12 +32,7 @@ const AdminLayout = ({ children }) => {
         }}
       >
         <Topbar />
-        <Box
-          component="section"
-          sx={{
-            marginLeft: isMobile ? "89px" : "19px", // Marge gauche uniquement en mode mobile
-          }}
-        >
+        <Box className="ml-[89px]" component="section">
           {children}
         </Box>
       </Box>

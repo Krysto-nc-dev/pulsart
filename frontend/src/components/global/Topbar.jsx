@@ -29,7 +29,7 @@ const Topbar = () => {
       justifyContent="space-between"
       p={2}
       sx={{
-        marginLeft: isMobile ? "72px" : "0", // Appliquer une marge en haut en mode mobile
+        marginLeft: "72px",
         transition: "margin-top 0.3s ease", // Transition douce pour la marge
       }}
     >
